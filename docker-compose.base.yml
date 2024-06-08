@@ -103,7 +103,8 @@ services:
       - PGID=${HOST_DOWNLOAD_GID:-1000}
     volumes:
       - ${HOST_DOWNLOAD_PATH:-/tmp}:/downloads
-      - ./transmission-settings.json:/config/settings.json:ro
+      - ${TRANS_SET_DIR:-/config}:/config
+      # - ./transmission-settings.json:/config/settings.json:ro
 
   # auto update service (to be extended)
   # https://github.com/containrrr/watchtower
